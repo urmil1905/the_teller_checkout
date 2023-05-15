@@ -2,7 +2,7 @@ library the_teller_checkout;
 
 import 'package:flutter/material.dart';
 import 'package:the_teller_checkout/src/browser/inapp_browser.dart';
-import 'package:the_teller_checkout/src/services/remote_services.dart';
+import 'services/remote_services.dart';
 
 /// A Calculator.
 class CheckoutRequest {

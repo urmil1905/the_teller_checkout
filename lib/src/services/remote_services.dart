@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
+import  'package:http/http.dart' as http ;
 import 'package:the_teller_checkout/src/model/model.dart';
 
 
