@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:the_teller_checkout/the_teller_checkout.dart';
+import 'package:the_teller_checkout/src/the_teller_checkout.dart';
 
 void main() {
   test('adds one to input values', () {

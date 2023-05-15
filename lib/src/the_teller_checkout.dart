@@ -1,6 +1,5 @@
 library the_teller_checkout;
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:the_teller_checkout/src/browser/inapp_browser.dart';
 import 'package:the_teller_checkout/src/services/remote_services.dart';
@@ -8,7 +7,7 @@ import 'package:the_teller_checkout/src/services/remote_services.dart';
 /// A Calculator.
 class CheckoutRequest {
   final service = RemoverServices();
-  Future<dynamic> initRequest(context,
+  Future<dynamic> initRequest(BuildContext context,
       {String? email,
       required String platform,
       required String amount,
@@ -43,7 +42,7 @@ class CheckoutRequest {
                     themeColor: themeColor ?? Color.fromARGB(255, 26, 3, 144),
                     url: response.checkoutUrl!)));
 
-        debugPrint("=====================$data");
+        // debugPrint("=====================$data");
       }
     });
 
