@@ -10,15 +10,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  flutter_lints: ^2.0.0
+  http: ^0.13.6
+  path_provider: ^2.0.15
+  webview_flutter: ^4.2.0
+
+  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  http: ^0.13.6
-  # provider: ^6.0.5
-  path_provider: ^2.0.15
-  webview_flutter: ^4.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
