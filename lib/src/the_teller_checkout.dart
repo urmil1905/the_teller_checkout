@@ -35,6 +35,7 @@ class CheckoutRequest {
         .then((response) async {
       if (response.status == 'success') {
         debugPrint(response.checkoutUrl!);
+       
         data = await Navigator.push(
             context,
             MaterialPageRoute(
@@ -42,7 +43,7 @@ class CheckoutRequest {
                     themeColor: themeColor ?? Color.fromARGB(255, 26, 3, 144),
                     url: response.checkoutUrl!)));
 
-        // debugPrint("=====================$data");
+        debugPrint("=====================$data");
       }
     });
 

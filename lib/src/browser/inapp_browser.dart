@@ -24,7 +24,9 @@ class WebViewExample extends StatefulWidget {
 }
 
 class _WebViewExampleState extends State<WebViewExample> {
-  late final WebViewController _controller;
+  WebViewController? _controller;
+  final GlobalKey webViewKey = GlobalKey();
+
 
   bool isLoading = false;
 
@@ -128,62 +130,23 @@ class _WebViewExampleState extends State<WebViewExample> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: widget.themeColor,
-        title: Text("Checkout"),
-        elevation: 0,
-        // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: widget.themeColor,
+          title: Text("Checkout"),
+          elevation: 0,
+          // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
+        ),
+        body: isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : WebViewWidget(
+              key: webViewKey,
+              
+              controller: _controller!),
+        // floatingActionButton: favoriteButton(),
       ),
-      body: isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : WebViewWidget(controller: _controller),
-      // floatingActionButton: favoriteButton(),
-    );
-  }
-}
-
-class NavigationControls extends StatelessWidget {
-  const NavigationControls({super.key, required this.webViewController});
-
-  final WebViewController webViewController;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () async {
-            if (await webViewController.canGoBack()) {
-              await webViewController.goBack();
-            } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('No back history item')),
-              );
-              return;
-            }
-          },
-        ),
-        IconButton(
-          icon: const Icon(Icons.arrow_forward_ios),
-          onPressed: () async {
-            if (await webViewController.canGoForward()) {
-              await webViewController.goForward();
-            } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('No forward history item')),
-              );
-              return;
-            }
-          },
-        ),
-        IconButton(
-          icon: const Icon(Icons.replay),
-          onPressed: () => webViewController.reload(),
-        ),
-      ],
     );
   }
 }
