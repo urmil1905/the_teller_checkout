@@ -7,7 +7,7 @@ supports Android and iOS.
 To use this plugin, add `the_teller_checkout` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 
 
-``` -->
+
 
 No other configuration required&mdash;the plugin works out of the box.
 
@@ -25,20 +25,7 @@ There are two ways of making payment with the plugin.
  reference. Pass an `accessCode` only when you have
  [initialized the transaction](https://developers.paystack.co/reference#initialize-a-transaction)
  from your backend. Otherwise, pass a `reference`.
- 
 
- ```dart
- Charge charge = Charge()
-       ..amount = 10000
-       ..reference = _getReference()
-        // or ..accessCode = _getAccessCodeFrmInitialization()
-       ..email = 'customer@email.com';
-     CheckoutResponse response = await plugin.checkout(
-       context context,
-       method: CheckoutMethod.card, // Defaults to CheckoutMethod.selectable
-       charge: charge,
-     );
- ```
 
 Please, note that an `accessCode` is required if the method is
 `CheckoutMethod.bank` or `CheckoutMethod.selectable`.
