@@ -84,11 +84,27 @@ You can then create a `Charge` object with the access code and card details. The
     // Use the response
   }
 ```
-
-
 The transaction is successful if `response.status` is true. Please, see the documentation 
 of [CheckoutResponse](https://pub.dev/documentation/flutter_paystack/latest/flutter_paystack/CheckoutResponse-class.html)
 for more information. 
+
+
+
+#### 2. Initialize Locally
+Just send the payment details to  `plugin.chargeCard`
+```dart
+      // Set transaction params directly in app (note that these params
+      // are only used if an access_code is not set. In debug mode,
+      // setting them after setting an access code would throw an error
+      Charge charge = Charge();
+      charge.card = _getCardFromUI();
+      charge
+        ..amount = 2000
+        ..email = 'user@email.com'
+        ..reference = _getReference()
+        ..putCustomField('Charged From', 'Flutter PLUGIN');
+      _chargeCard();
+```
 
 
 
