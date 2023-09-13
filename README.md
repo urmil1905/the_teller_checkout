@@ -6,8 +6,8 @@ supports Android and iOS.
 ## :rocket: Installation
 To use this plugin, add 
   
-1.  the_teller_checkout:
-    git:
+1.  the_teller_checkout:<br />
+    git:<br />
       url: https://github.com/mccamo51/the_teller_checkout.git
   
 
