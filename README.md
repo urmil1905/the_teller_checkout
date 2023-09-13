@@ -1,6 +1,6 @@
 # :credit_card: theteller Checkout Plugin for Flutter
 
-A Flutter plugin for making payments via Paystack Payment Gateway. Fully
+A Flutter plugin for making payments via theteller payment gateway. Fully
 supports Android and iOS.
 
 ## :rocket: Installation
@@ -36,20 +36,20 @@ No other configuration required&mdash;the plugin works out of the box.
                                 merchsntID: kmerchantId,
                                 transactionID: '000000000052')
 
+<!-- 
 You can choose to initialize the payment locally or via your backend.
 
 #### A. Initialize Via Your Backend (Recommended)
 
 1.a. This starts by making a HTTP POST request to
-<!-- [paystack](https://developers.paystack.co/reference#initialize-a-transaction) -->
 on your backend.
 
 1.b If everything goes well, the initialization request returns a response with an `access_code`.
 You can then create a `Charge` object with the access code and card details. The `charge` is in turn passed to the `plugin.chargeCard()` function for payment:
-
+!-->
 ```dart
   CheckoutRequest  checkout = CheckoutRequest();
-  
+
           
    checkout.initRequest(
              context,
@@ -69,23 +69,6 @@ The transaction is successful if `response.status` is 000. Please, see the docum
 of [CheckoutResponse](https://theteller.net/documentation)
 for more information. 
 
-
-
-<!-- #### 2. Initialize Locally
-Just send the payment details to  `plugin.chargeCard`
-```dart
-      // Set transaction params directly in app (note that these params
-      // are only used if an access_code is not set. In debug mode,
-      // setting them after setting an access code would throw an error
-      Charge charge = Charge();
-      charge.card = _getCardFromUI();
-      charge
-        ..amount = 2000
-        ..email = 'user@email.com'
-        ..reference = _getReference()
-        ..putCustomField('Charged From', 'Flutter PLUGIN');
-      _chargeCard();
-``` -->
 
 
 
