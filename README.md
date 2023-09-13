@@ -19,7 +19,7 @@ To use this plugin, add
 No other configuration required&mdash;the plugin works out of the box.
 
 ### 1. Create an instance of the class CheckoutRequest();
-`Example:   final checkout= CheckoutRequest();`
+`Example:   CheckoutRequest checkout= CheckoutRequest();`
 
 
 
