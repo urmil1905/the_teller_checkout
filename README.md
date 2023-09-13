@@ -1,4 +1,4 @@
-# :credit_card: TheTella Checkout Plugin for Flutter
+# :credit_card: theteller Checkout Plugin for Flutter
 
 A Flutter plugin for making payments via Paystack Payment Gateway. Fully
 supports Android and iOS.
