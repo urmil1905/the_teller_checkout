@@ -8,7 +8,7 @@ To use this plugin, add
   
 1.  the_teller_checkout:<br />
     git:<br />
-    &nbsp;url: https://github.com/mccamo51/the_teller_checkout.git
+    &nbsp; &nbsp; url: https://github.com/mccamo51/the_teller_checkout.git
   
 
 2. http: ^0.13.6
