@@ -16,6 +16,7 @@ class CheckoutRequest {
       required String merchsntID,
       required String apiUser,
       required String transactionID,
+      required String paymentMethod,
       Color? themeColor}) async {
     dynamic data;
     Map<String, dynamic> body = {
@@ -27,6 +28,7 @@ class CheckoutRequest {
           "https://test.theteller.net/checkout/checkout/eU1xSFN5Ky92MUt5dmpnT",
       "email": email,
       "API_Key": apiKeys,
+      "payment_method": paymentMethod,
       "apiuser": apiUser
     };
     await service
@@ -35,15 +37,19 @@ class CheckoutRequest {
         .then((response) async {
       if (response.status == 'success') {
         debugPrint(response.checkoutUrl!);
-       
+
         data = await Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => WebViewExample(
-                    themeColor: themeColor ?? Color.fromARGB(255, 26, 3, 144),
-                    url: response.checkoutUrl!)));
+                builder: (context) =>
+                    WebViewExample(
+                        themeColor: themeColor ??
+                            const Color.fromARGB(255, 26, 3, 144),
+                        url: response.checkoutUrl!)));
 
         debugPrint("=====================$data");
+      } else {
+        return response;
       }
     });
 
