@@ -101,7 +101,11 @@ class _WebViewExampleState extends State<WebViewExample> {
               Navigator.pop(context, "Wrong PIN or transaction timed out");
               return NavigationDecision.prevent;
             }
-
+            if (request.url.contains('status=cancelled&code=900')) {
+              debugPrint('Transaction navigation to ${request.url}');
+              Navigator.pop(context, "Cancelled");
+              return NavigationDecision.prevent;
+            }
             debugPrint('allowing navigation to ${request.url}');
             return NavigationDecision.navigate;
           },
